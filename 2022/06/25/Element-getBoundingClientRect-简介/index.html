@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: css | Hexo</title>
+  <title>Element.getBoundingClientRect()简介 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/tags/css/index.html">
+  <meta name="description" content="概述：在了解这个函数钩子前我们先了解两个有用的内置属性值:(1) window.innerHtmlHeight&#x2F;width 这个属性指当前浏览器页面的高度或宽度(不包含滚动条距离)。(2) Element.clientHeight&#x2F;width 表示当前元素的宽度和高度不包含元素的边框(3) Element.offsetHeight&#x2F;width 包含元素的边框getBo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Element.getBoundingClientRect()简介">
+<meta property="og:url" content="http://example.com/2022/06/25/Element-getBoundingClientRect-%E7%AE%80%E4%BB%8B/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="概述：在了解这个函数钩子前我们先了解两个有用的内置属性值:(1) window.innerHtmlHeight&#x2F;width 这个属性指当前浏览器页面的高度或宽度(不包含滚动条距离)。(2) Element.clientHeight&#x2F;width 表示当前元素的宽度和高度不包含元素的边框(3) Element.offsetHeight&#x2F;width 包含元素的边框getBo">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-06-25T09:17:35.000Z">
+<meta property="article:modified_time" content="2022-06-25T10:23:02.000Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -150,146 +155,187 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Element-getBoundingClientRect-简介" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/24/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
-  	<time datetime="2023-04-24T08:45:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-24</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/24/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/">盒子模型</a>
+    <h1 class="article-title" itemprop="name">
+      Element.getBoundingClientRect()简介
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2022/06/25/Element-getBoundingClientRect-%E7%AE%80%E4%BB%8B/" class="archive-article-date">
+  	<time datetime="2022-06-25T09:17:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>概述：在了解这个函数钩子前我们先了解两个有用的内置属性值:<br>(1) window.innerHtmlHeight&#x2F;width 这个属性指当前浏览器页面的高度或宽度(不包含滚动条距离)。<br>(2) Element.clientHeight&#x2F;width 表示当前元素的宽度和高度不包含元素的边框<br>(3) Element.offsetHeight&#x2F;width 包含元素的边框<br>getBoundingClientRect() 会返回如下值：<br>(1) width&#x2F;height: 包含padding和border(所以此时值和offsetHeight&#x2F;width相等)<br>(2) top&#x2F;left: 元素左上顶点对于视口的距离不包含滚动距离<br>(3) bottom&#x2F;right: 右下的距离不包含滚动条的距离<br>(4) X&#x2F;Y的值大小和left&#x2F;top相等</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/13/%E9%AA%A8%E6%9E%B6%E5%B1%8F%E6%A0%B7%E5%BC%8F%E7%9A%84%E5%AE%9E%E7%8E%B0/" class="archive-article-date">
-  	<time datetime="2023-04-13T13:19:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/13/%E9%AA%A8%E6%9E%B6%E5%B1%8F%E6%A0%B7%E5%BC%8F%E7%9A%84%E5%AE%9E%E7%8E%B0/">骨架屏样式的实现</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        			<a href="/categories/有用的函数钩子//" class="article-tag-list-link color3">有用的函数钩子</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/06/25/Element-getBoundingClientRect-%E7%AE%80%E4%BB%8B/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
+<nav id="article-nav">
+  
+    <a href="/2022/06/26/leetcode-9%E5%9B%9E%E6%96%87%E6%95%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          leetcode-9回文数
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/06/18/computed%E4%B8%8E%E9%97%AD%E5%8C%85/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">computed与闭包</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/10/23/%E7%BF%BB%E8%BD%AC%E5%8D%A1%E7%89%87loading/" class="archive-article-date">
-  	<time datetime="2022-10-23T09:54:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-23</time>
-</a>
-        </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/10/23/%E7%BF%BB%E8%BD%AC%E5%8D%A1%E7%89%87loading/">翻转卡片loading</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -312,9 +358,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

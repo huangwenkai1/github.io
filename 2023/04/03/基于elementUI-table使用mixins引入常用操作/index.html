@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: css | Hexo</title>
+  <title>基于elementUI-table使用mixins引入常用操作 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/tags/css/index.html">
+  <meta name="description" content="在工作中经常会使用到表格，其中很多功能是通用的，将一些常用的功能进行封装可以避免写重复性的代码。 表格数据加载(1)表格数据加载时可以使用 pageNoName pageSizeName 重写当前页参数名和每页显示数目参数名。(2)totalName 用于重写获取响应数据总条数的参数名称。(3)queryParams为查询表单绑定参数。(4)当我们不需要调用created生命周期调用查询时需要将i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于elementUI-table使用mixins引入常用操作">
+<meta property="og:url" content="http://example.com/2023/04/03/%E5%9F%BA%E4%BA%8EelementUI-table%E4%BD%BF%E7%94%A8mixins%E5%BC%95%E5%85%A5%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在工作中经常会使用到表格，其中很多功能是通用的，将一些常用的功能进行封装可以避免写重复性的代码。 表格数据加载(1)表格数据加载时可以使用 pageNoName pageSizeName 重写当前页参数名和每页显示数目参数名。(2)totalName 用于重写获取响应数据总条数的参数名称。(3)queryParams为查询表单绑定参数。(4)当我们不需要调用created生命周期调用查询时需要将i">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-04-03T08:04:46.000Z">
+<meta property="article:modified_time" content="2023-04-03T08:34:04.000Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="vue.js">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -150,146 +155,177 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-基于elementUI-table使用mixins引入常用操作" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/24/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
-  	<time datetime="2023-04-24T08:45:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-24</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/24/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/">盒子模型</a>
+    <h1 class="article-title" itemprop="name">
+      基于elementUI-table使用mixins引入常用操作
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2023/04/03/%E5%9F%BA%E4%BA%8EelementUI-table%E4%BD%BF%E7%94%A8mixins%E5%BC%95%E5%85%A5%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" class="archive-article-date">
+  	<time datetime="2023-04-03T08:04:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在工作中经常会使用到表格，其中很多功能是通用的，将一些常用的功能进行封装可以避免写重复性的代码。</p>
+<h4 id="表格数据加载"><a href="#表格数据加载" class="headerlink" title="表格数据加载"></a>表格数据加载</h4><h5 id="1-表格数据加载时可以使用-pageNoName-pageSizeName-重写当前页参数名和每页显示数目参数名。"><a href="#1-表格数据加载时可以使用-pageNoName-pageSizeName-重写当前页参数名和每页显示数目参数名。" class="headerlink" title="(1)表格数据加载时可以使用 pageNoName pageSizeName 重写当前页参数名和每页显示数目参数名。"></a>(1)表格数据加载时可以使用 pageNoName pageSizeName 重写当前页参数名和每页显示数目参数名。</h5><h5 id="2-totalName-用于重写获取响应数据总条数的参数名称。"><a href="#2-totalName-用于重写获取响应数据总条数的参数名称。" class="headerlink" title="(2)totalName 用于重写获取响应数据总条数的参数名称。"></a>(2)totalName 用于重写获取响应数据总条数的参数名称。</h5><h5 id="3-queryParams为查询表单绑定参数。"><a href="#3-queryParams为查询表单绑定参数。" class="headerlink" title="(3)queryParams为查询表单绑定参数。"></a>(3)queryParams为查询表单绑定参数。</h5><h5 id="4-当我们不需要调用created生命周期调用查询时需要将isNeedCreated设置为false"><a href="#4-当我们不需要调用created生命周期调用查询时需要将isNeedCreated设置为false" class="headerlink" title="(4)当我们不需要调用created生命周期调用查询时需要将isNeedCreated设置为false"></a>(4)当我们不需要调用created生命周期调用查询时需要将isNeedCreated设置为false</h5><h4 id="单条数据删除，单条数据删除通常用于表格操作栏删除某行数据"><a href="#单条数据删除，单条数据删除通常用于表格操作栏删除某行数据" class="headerlink" title="单条数据删除，单条数据删除通常用于表格操作栏删除某行数据"></a>单条数据删除，单条数据删除通常用于表格操作栏删除某行数据</h4><h5 id="1-delKeyName重写参数名称。"><a href="#1-delKeyName重写参数名称。" class="headerlink" title="(1)delKeyName重写参数名称。"></a>(1)delKeyName重写参数名称。</h5><h4 id="批量数据删除"><a href="#批量数据删除" class="headerlink" title="批量数据删除"></a>批量数据删除</h4><h5 id="1-batchKeyName重写参数名称。"><a href="#1-batchKeyName重写参数名称。" class="headerlink" title="(1)batchKeyName重写参数名称。"></a>(1)batchKeyName重写参数名称。</h5><h4 id="表格选择返回参数"><a href="#表格选择返回参数" class="headerlink" title="表格选择返回参数"></a>表格选择返回参数</h4><h5 id="1-tableRowKey定义选择操作时保存的行数据关键字。"><a href="#1-tableRowKey定义选择操作时保存的行数据关键字。" class="headerlink" title="(1)tableRowKey定义选择操作时保存的行数据关键字。"></a>(1)tableRowKey定义选择操作时保存的行数据关键字。</h5><h5 id="2-selectedRowsIds表格选择关键字的存储数组。"><a href="#2-selectedRowsIds表格选择关键字的存储数组。" class="headerlink" title="(2)selectedRowsIds表格选择关键字的存储数组。"></a>(2)selectedRowsIds表格选择关键字的存储数组。</h5><h5 id="3-selectedRows表格选择行数据的存储数组。"><a href="#3-selectedRows表格选择行数据的存储数组。" class="headerlink" title="(3)selectedRows表格选择行数据的存储数组。"></a>(3)selectedRows表格选择行数据的存储数组。</h5><h4 id="反选"><a href="#反选" class="headerlink" title="反选"></a>反选</h4><h5 id="1-reChoose用于执行反选操作。"><a href="#1-reChoose用于执行反选操作。" class="headerlink" title="(1)reChoose用于执行反选操作。"></a>(1)reChoose用于执行反选操作。</h5><h4 id="重置"><a href="#重置" class="headerlink" title="重置"></a>重置</h4><h5 id="1-reset用于执行反选操作。"><a href="#1-reset用于执行反选操作。" class="headerlink" title="(1)reset用于执行反选操作。"></a>(1)reset用于执行反选操作。</h5><p>建议重写重置操作方法，并且在引入文件中对queryParams的查询字段进行初始化。因为，在vue2中使用Object.defineProperty定义的响应式，时初始化字段响应否则需要使用$set方法重写定义，如果使用暴力赋值{}可能会造成校验问题和其它问题。在涉及到使用接口请求的方法封装记得和后端沟通，统一入参和响应格式避免产生错误。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="title function_">data</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      <span class="attr">pageNo</span>: <span class="number">1</span>,</span><br><span class="line">      <span class="attr">pageSize</span>: <span class="number">10</span>,</span><br><span class="line">      <span class="attr">total</span>: <span class="string">&#x27;0&#x27;</span>,</span><br><span class="line">      <span class="attr">pageNoName</span>: <span class="string">&#x27;pageNo&#x27;</span>,</span><br><span class="line">      <span class="attr">pageSizeName</span>: <span class="string">&#x27;pageSize&#x27;</span>,</span><br><span class="line">      <span class="attr">totalName</span>: <span class="string">&#x27;total&#x27;</span>,</span><br><span class="line">      <span class="attr">tableData</span>: [],</span><br><span class="line">      <span class="comment">/* 查询条件 */</span></span><br><span class="line">      <span class="attr">queryParams</span>: &#123;&#125;,</span><br><span class="line">      <span class="comment">/* 判断是否在created声明周期执行loadData */</span></span><br><span class="line">      <span class="attr">isNeedCreated</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="comment">/* 表格选择数据 */</span></span><br><span class="line">      <span class="attr">selectedRowsIds</span>:[],</span><br><span class="line">      <span class="attr">selectedRows</span>:[],</span><br><span class="line">      <span class="comment">/* 当前页表格数据的所有ids */</span></span><br><span class="line">      <span class="attr">tableDataIds</span>:[],</span><br><span class="line">      <span class="comment">/* 表格选择时存储的关键字 */</span></span><br><span class="line">      <span class="attr">tableRowKey</span>:<span class="string">&#x27;id&#x27;</span>,</span><br><span class="line">      <span class="attr">delKeyName</span>: <span class="string">&#x27;id&#x27;</span>,</span><br><span class="line">      <span class="attr">batchKeyName</span>: <span class="string">&#x27;ids&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="title function_">created</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">isNeedCreated</span>) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="title function_">loadData</span>()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">methods</span>: &#123;</span><br><span class="line">    <span class="comment">/* 获取表格数据 */</span></span><br><span class="line">    <span class="keyword">async</span> <span class="title function_">loadData</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">url</span> || <span class="variable language_">this</span>.<span class="property">url</span>.<span class="property">list</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">$message</span>.<span class="title function_">error</span>(<span class="string">&#x27;url.list不能为空&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> params = &#123;</span><br><span class="line">          ...<span class="variable language_">this</span>.<span class="property">queryParams</span>,</span><br><span class="line">          [<span class="variable language_">this</span>.<span class="property">pageNoName</span>]: <span class="variable language_">this</span>.<span class="property">pageNo</span>,</span><br><span class="line">          [<span class="variable language_">this</span>.<span class="property">pageSizeName</span>]: <span class="variable language_">this</span>.<span class="property">pageSize</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/* get指代get类型请求需依据实际请求配置 */</span></span><br><span class="line">        <span class="keyword">await</span> <span class="title function_">get</span>(<span class="variable language_">this</span>.<span class="property">url</span>, params).<span class="title function_">then</span>(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">const</span> &#123; code &#125; = res</span><br><span class="line">          <span class="keyword">if</span> (code == <span class="number">200</span>) &#123;</span><br><span class="line">            <span class="variable language_">this</span>.<span class="property">tableData</span> = res.<span class="property">result</span>,</span><br><span class="line">            <span class="variable language_">this</span>.<span class="property">total</span> = res[<span class="variable language_">this</span>.<span class="property">totalName</span>]</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="variable language_">this</span>.<span class="property">$message</span>.<span class="title function_">error</span>(res.<span class="property">message</span> || <span class="string">&#x27;数据请求错误&#x27;</span>)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;).<span class="title function_">catch</span>(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="variable language_">this</span>.<span class="property">$message</span>.<span class="title function_">error</span>(error.<span class="property">message</span> || <span class="string">&#x27;数据请求错误&#x27;</span>)</span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="variable language_">this</span>.<span class="title function_">getTableIds</span>()</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 表格加载数目改变 */</span></span><br><span class="line">    <span class="title function_">handleSizeChange</span>(<span class="params">val</span>) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">pageSize</span> = val</span><br><span class="line">      <span class="variable language_">this</span>.<span class="title function_">loadData</span>()</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 表格翻页请求 */</span></span><br><span class="line">    <span class="title function_">handleCurrentChange</span>(<span class="params">val</span>) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">pageNo</span> = val</span><br><span class="line">      <span class="variable language_">this</span>.<span class="title function_">loadData</span>()</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 重置操作 */</span></span><br><span class="line">    <span class="title function_">reset</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">queryParams</span> = &#123;&#125;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">pageNo</span> = <span class="number">1</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">pageSize</span> = <span class="number">10</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="title function_">loadData</span>()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 将选择的单个节点删除 */</span></span><br><span class="line">    <span class="keyword">async</span> <span class="title function_">delRow</span>(<span class="params">id</span>)&#123;</span><br><span class="line">      <span class="keyword">if</span>( <span class="variable language_">this</span>.<span class="property">url</span> || <span class="variable language_">this</span>.<span class="property">url</span>.<span class="property">del</span>)&#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">$message</span>.<span class="title function_">error</span>(<span class="string">&#x27;url.del不能为空&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="variable language_">this</span>.$confirm(<span class="string">&#x27;此操作将永久删除数据, 是否继续?&#x27;</span>, <span class="string">&#x27;提示&#x27;</span>, &#123;</span><br><span class="line">        <span class="attr">confirmButtonText</span>: <span class="string">&#x27;确定&#x27;</span>,</span><br><span class="line">        <span class="attr">cancelButtonText</span>: <span class="string">&#x27;取消&#x27;</span>,</span><br><span class="line">        <span class="attr">type</span>: <span class="string">&#x27;warning&#x27;</span></span><br><span class="line">      &#125;).<span class="title function_">then</span>(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">        <span class="keyword">await</span>  <span class="variable language_">this</span>.<span class="title function_">delRow</span>(id)</span><br><span class="line">        <span class="variable language_">this</span>.<span class="title function_">loadData</span>()</span><br><span class="line">      &#125;).<span class="title function_">catch</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">this</span>.$message(&#123;</span><br><span class="line">          <span class="attr">type</span>: <span class="string">&#x27;info&#x27;</span>,</span><br><span class="line">          <span class="attr">message</span>: <span class="string">&#x27;已取消删除&#x27;</span></span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">async</span> <span class="title function_">delRow</span>(<span class="params">id</span>)&#123;</span><br><span class="line">      <span class="keyword">await</span>  <span class="title function_">delete</span>(<span class="variable language_">this</span>.<span class="property">url</span>.<span class="property">del</span>, &#123;[<span class="variable language_">this</span>.<span class="property">delKeyName</span>]: id&#125;).<span class="title function_">then</span>(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">const</span> &#123; code &#125; = res</span><br><span class="line">        <span class="keyword">if</span> (code == <span class="number">200</span>) &#123;</span><br><span class="line">          <span class="variable language_">this</span>.<span class="property">$message</span>.<span class="title function_">success</span>(<span class="string">&#x27;删除成功&#x27;</span>)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="variable language_">this</span>.<span class="property">$message</span>.<span class="title function_">error</span>(res.<span class="property">message</span> || <span class="string">&#x27;操作失败&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;).<span class="title function_">catch</span>(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">$message</span>.<span class="title function_">error</span>(error.<span class="property">message</span> || <span class="string">&#x27;数据请求错误&#x27;</span>)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">/* 将选择的节点批量删除 */</span></span><br><span class="line">    <span class="keyword">async</span> <span class="title function_">batchDelRows</span>(<span class="params"></span>)&#123;</span><br><span class="line">      <span class="keyword">if</span>( <span class="variable language_">this</span>.<span class="property">url</span> || <span class="variable language_">this</span>.<span class="property">url</span>.<span class="property">batchDel</span>)&#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">$message</span>.<span class="title function_">error</span>(<span class="string">&#x27;url.batchDel不能为空&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span>(<span class="variable language_">this</span>.<span class="property">selectedRowsIds</span>.<span class="property">length</span> == <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">$message</span>.<span class="title function_">error</span>(<span class="string">&#x27;请选择需要删除的数据&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="variable language_">this</span>.$confirm(<span class="string">&#x27;此操作将永久删除数据, 是否继续?&#x27;</span>, <span class="string">&#x27;提示&#x27;</span>, &#123;</span><br><span class="line">        <span class="attr">confirmButtonText</span>: <span class="string">&#x27;确定&#x27;</span>,</span><br><span class="line">        <span class="attr">cancelButtonText</span>: <span class="string">&#x27;取消&#x27;</span>,</span><br><span class="line">        <span class="attr">type</span>: <span class="string">&#x27;warning&#x27;</span></span><br><span class="line">      &#125;).<span class="title function_">then</span>(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">        <span class="keyword">await</span>  <span class="variable language_">this</span>.<span class="title function_">handleBatchDel</span>()</span><br><span class="line">        <span class="variable language_">this</span>.<span class="title function_">loadData</span>()</span><br><span class="line">      &#125;).<span class="title function_">catch</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">this</span>.$message(&#123;</span><br><span class="line">          <span class="attr">type</span>: <span class="string">&#x27;info&#x27;</span>,</span><br><span class="line">          <span class="attr">message</span>: <span class="string">&#x27;已取消删除&#x27;</span></span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">async</span> <span class="title function_">handleBatchDel</span>(<span class="params"></span>)&#123;</span><br><span class="line">      <span class="keyword">await</span>  <span class="title function_">delete</span>(<span class="variable language_">this</span>.<span class="property">url</span>.<span class="property">batchDel</span>, &#123;[<span class="variable language_">this</span>.<span class="property">batchKeyName</span>]: <span class="variable language_">this</span>.<span class="property">selectedRowsIds</span>&#125;).<span class="title function_">then</span>(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">const</span> &#123; code &#125; = res</span><br><span class="line">        <span class="keyword">if</span> (code == <span class="number">200</span>) &#123;</span><br><span class="line">          <span class="variable language_">this</span>.<span class="property">$message</span>.<span class="title function_">success</span>(<span class="string">&#x27;删除成功&#x27;</span>)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="variable language_">this</span>.<span class="property">$message</span>.<span class="title function_">error</span>(res.<span class="property">message</span> || <span class="string">&#x27;操作失败&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;).<span class="title function_">catch</span>(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">$message</span>.<span class="title function_">error</span>(error.<span class="property">message</span> || <span class="string">&#x27;数据请求错误&#x27;</span>)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 反选操作 */</span></span><br><span class="line">    <span class="title function_">reChoose</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">var</span> temp = [];</span><br><span class="line">      <span class="keyword">var</span> tempId = [];</span><br><span class="line">      <span class="keyword">const</span> n = <span class="variable language_">this</span>.<span class="property">tableDataIds</span>.<span class="property">length</span>;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">const</span> id = <span class="variable language_">this</span>.<span class="property">tableDataIds</span>[i];</span><br><span class="line">        <span class="comment">// 反选</span></span><br><span class="line">        <span class="keyword">if</span> (!<span class="variable language_">this</span>.<span class="property">selectedRowsIds</span>.<span class="title function_">includes</span>(id)) &#123;</span><br><span class="line">          <span class="variable language_">this</span>.<span class="property">$refs</span>.<span class="property">tableRef</span>.<span class="title function_">toggleRowSelection</span>(<span class="variable language_">this</span>.<span class="property">tableData</span>[i], <span class="literal">true</span>);</span><br><span class="line">          temp.<span class="title function_">push</span>(<span class="variable language_">this</span>.<span class="property">tableData</span>[i]);</span><br><span class="line">          tempId.<span class="title function_">push</span>(<span class="variable language_">this</span>.<span class="property">tableDataIds</span>[i]);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="variable language_">this</span>.<span class="property">$refs</span>.<span class="property">tableRef</span>.<span class="title function_">toggleRowSelection</span>(<span class="variable language_">this</span>.<span class="property">tableData</span>[i], <span class="literal">false</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">selectedRows</span> = <span class="title function_">cloneDeep</span>(temp);</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">selectedRowsIds</span> = <span class="title function_">cloneDeep</span>(tempId);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="title function_">handleSelectionChange</span>(<span class="params">val</span>) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">selectedRows</span> = <span class="title function_">cloneDeep</span>(val);</span><br><span class="line">      <span class="keyword">const</span> n = <span class="variable language_">this</span>.<span class="property">selectedRows</span>.<span class="property">length</span>;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">selectedRowsIds</span> = [];</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">selectedRowsIds</span>.<span class="title function_">push</span>(<span class="variable language_">this</span>.<span class="property">selectedRows</span>[i][<span class="variable language_">this</span>.<span class="property">tableRowKey</span>]);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">/* 获取列表数据的全部ID */</span></span><br><span class="line">    <span class="title function_">getTableIds</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">selectedRowsIds</span> = [];</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">selectedRows</span> = [];</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">tableDataIds</span> = [];</span><br><span class="line">      <span class="keyword">const</span> n = <span class="variable language_">this</span>.<span class="property">tableData</span>.<span class="property">length</span>;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">tableDataIds</span>.<span class="title function_">push</span>(<span class="variable language_">this</span>.<span class="property">tableData</span>[i][<span class="variable language_">this</span>.<span class="property">tableRowKey</span>]);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vue.js</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/04/03/%E5%9F%BA%E4%BA%8EelementUI-table%E4%BD%BF%E7%94%A8mixins%E5%BC%95%E5%85%A5%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/13/%E9%AA%A8%E6%9E%B6%E5%B1%8F%E6%A0%B7%E5%BC%8F%E7%9A%84%E5%AE%9E%E7%8E%B0/" class="archive-article-date">
-  	<time datetime="2023-04-13T13:19:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-13</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2023/04/06/EventsEmitter%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          EventsEmitter事件总线
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/04/02/%E5%9F%BA%E4%BA%8EelementUI-dialog%E7%9A%84%E4%BA%8C%E6%AC%A1%E5%B0%81%E8%A3%85/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">基于elementUI-dialog的二次封装</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/13/%E9%AA%A8%E6%9E%B6%E5%B1%8F%E6%A0%B7%E5%BC%8F%E7%9A%84%E5%AE%9E%E7%8E%B0/">骨架屏样式的实现</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/10/23/%E7%BF%BB%E8%BD%AC%E5%8D%A1%E7%89%87loading/" class="archive-article-date">
-  	<time datetime="2022-10-23T09:54:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/10/23/%E7%BF%BB%E8%BD%AC%E5%8D%A1%E7%89%87loading/">翻转卡片loading</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -312,9 +348,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

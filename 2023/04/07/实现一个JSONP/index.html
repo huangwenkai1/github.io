@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: css | Hexo</title>
+  <title>实现一个JSONP | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/tags/css/index.html">
+  <meta name="description" content="前后端分离可以将项目解耦提高开发效率，但是前后端分离使得前端工程和后端工程部署在不同的服务器，依据浏览器的同源策略(协议相同，域名相同，端口相同)前端访问部署在其它服务器的请求时将有跨域问题，我们可以选择使用vue.config.js（配置代理）加axios的方式或者JSONP来解决。JSONP的实现代码如下: 1234567891011121314151617181920212223242526">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实现一个JSONP">
+<meta property="og:url" content="http://example.com/2023/04/07/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAJSONP/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="前后端分离可以将项目解耦提高开发效率，但是前后端分离使得前端工程和后端工程部署在不同的服务器，依据浏览器的同源策略(协议相同，域名相同，端口相同)前端访问部署在其它服务器的请求时将有跨域问题，我们可以选择使用vue.config.js（配置代理）加axios的方式或者JSONP来解决。JSONP的实现代码如下: 1234567891011121314151617181920212223242526">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-04-07T06:02:55.000Z">
+<meta property="article:modified_time" content="2023-04-07T09:28:54.000Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="vue.js">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -150,146 +155,181 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-实现一个JSONP" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/24/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
-  	<time datetime="2023-04-24T08:45:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-24</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/24/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/">盒子模型</a>
+    <h1 class="article-title" itemprop="name">
+      实现一个JSONP
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2023/04/07/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAJSONP/" class="archive-article-date">
+  	<time datetime="2023-04-07T06:02:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前后端分离可以将项目解耦提高开发效率，但是前后端分离使得前端工程和后端工程部署在不同的服务器，依据浏览器的同源策略(协议相同，域名相同，端口相同)前端访问部署在其它服务器的请求时将有跨域问题，我们可以选择使用vue.config.js（配置代理）加axios的方式或者JSONP来解决。JSONP的实现代码如下:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">jsonp</span>(<span class="params">url, params, callback</span>) &#123;</span><br><span class="line">  <span class="comment">// 判断是否含有参数</span></span><br><span class="line">  <span class="keyword">let</span> queryString = url.<span class="title function_">indexOf</span>(<span class="string">&quot;?&quot;</span>) === -<span class="number">1</span> ? <span class="string">&quot;?&quot;</span> : <span class="string">&quot;&amp;&quot;</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 添加参数</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> k <span class="keyword">in</span> params) &#123;</span><br><span class="line">    <span class="keyword">if</span> (params.<span class="title function_">hasOwnProperty</span>(k)) &#123;</span><br><span class="line">      queryString += k + <span class="string">&quot;=&quot;</span> + params[k] + <span class="string">&quot;&amp;&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 处理回调函数名</span></span><br><span class="line">  <span class="keyword">let</span> random = <span class="title class_">Math</span>.<span class="title function_">random</span>()</span><br><span class="line">      .<span class="title function_">toString</span>()</span><br><span class="line">      .<span class="title function_">replace</span>(<span class="string">&quot;.&quot;</span>, <span class="string">&quot;&quot;</span>),</span><br><span class="line">    callbackName = <span class="string">&quot;myJsonp&quot;</span> + random;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 添加回调函数</span></span><br><span class="line">  queryString += <span class="string">&quot;callback=&quot;</span> + callbackName;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 构建请求</span></span><br><span class="line">  <span class="keyword">let</span> scriptNode = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&quot;script&quot;</span>);</span><br><span class="line">  scriptNode.<span class="property">src</span> = url + queryString;</span><br><span class="line"></span><br><span class="line">  <span class="variable language_">window</span>[callbackName] = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// 调用回调函数</span></span><br><span class="line">    <span class="title function_">callback</span>(...<span class="variable language_">arguments</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 删除这个引入的脚本</span></span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">&quot;head&quot;</span>)[<span class="number">0</span>].<span class="title function_">removeChild</span>(scriptNode);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 发起请求</span></span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">&quot;head&quot;</span>)[<span class="number">0</span>].<span class="title function_">appendChild</span>(scriptNode);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>观察以上代码发现，使用JSONP我们可以访问任何地址的服务也对于数据未进行过滤，导致其它服务可以通过注入恶意脚本进行攻击，同时我们也只可以将数据拼接在url中浏览器会将url缓存导致敏感数据泄露，所以JSONP并不是解决跨域问题的第一选择。<br>在实际开发中我们应该选择axios和代理方式同时需要注意一下:<br>(1)对于后端返回数据进行过滤校验。<br>对于数据类型长度进行校验，避免使用eval()(如果必须使用那么应当严格模式下使用限制访问范围)等<br>(2)在发布时后端设置响应头Content-Security-Policy字段对于浏览器进行资源和脚本的访问权限进行限制。开发是使用Content-Security-Policy-Report-Only字段记录违规记录。<br>report-to csp-report-endpoint Report-To: {“group”:”csp-endpoint”,”max_age”:31536000,”endpoints”:[{“url”:”<a target="_blank" rel="noopener" href="https://xxxx"}]}">https://xxxx&quot;}]}</a> 其中endpoints指定错报报告发送地址，同时可以使用window.ReportingObserver来进行监听。<br>(3)对于敏感数据使用post请求以免get请求的路径被缓存。<br>在学习的起初阶段对于.env.development和vue.config.js是迷惑的它们有一下不同进行记录:<br>在.env.development文件中进行配置VUE_APP_API_BASE_URL&#x3D;<a target="_blank" rel="noopener" href="http://localhost:3000/api%EF%BC%8C%E5%BD%93%E6%88%91%E4%BB%AC%E4%BB%A5npm">http://localhost:3000/api，当我们以npm</a> run dev启动时通过 process.env.VUE_APP_API_BASE_URL 可以进行访问配置变量的获取。在进行开发环境打包时，打包程序也是这个地址，我们可以将访问地址引入到axios配置文件中，设置访问地址。</p>
+<p>vue.config.js文件用于配置Vue CLI的行为。其中，我们可以使用devServer.proxy选项来设置代理，以便解决跨域问题。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">devServer</span>: &#123;</span><br><span class="line">    <span class="attr">proxy</span>: &#123;</span><br><span class="line">      <span class="string">&#x27;/api&#x27;</span>: &#123;</span><br><span class="line">        <span class="attr">target</span>: <span class="string">&#x27;http://localhost:3000&#x27;</span>,</span><br><span class="line">        <span class="attr">changeOrigin</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">pathRewrite</span>: &#123;</span><br><span class="line">          <span class="string">&#x27;^/api&#x27;</span>: <span class="string">&#x27;&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里，我们将所有请求路径以&#x2F;api开头的请求转发到<a href="http://localhost:3000服务器上。但是设置不会在打包程序中生效。">http://localhost:3000服务器上。但是设置不会在打包程序中生效。</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vue.js</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/04/07/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAJSONP/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/13/%E9%AA%A8%E6%9E%B6%E5%B1%8F%E6%A0%B7%E5%BC%8F%E7%9A%84%E5%AE%9E%E7%8E%B0/" class="archive-article-date">
-  	<time datetime="2023-04-13T13:19:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-13</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2023/04/07/vuex%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E5%9C%A8%E9%A1%B5%E9%9D%A2%E5%88%B7%E6%96%B0%E6%97%B6%E7%9A%84%E4%BF%9D%E5%AD%98/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          vuex中的数据在页面刷新时的保存
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/04/06/EventsEmitter%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">EventsEmitter事件总线</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/13/%E9%AA%A8%E6%9E%B6%E5%B1%8F%E6%A0%B7%E5%BC%8F%E7%9A%84%E5%AE%9E%E7%8E%B0/">骨架屏样式的实现</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/10/23/%E7%BF%BB%E8%BD%AC%E5%8D%A1%E7%89%87loading/" class="archive-article-date">
-  	<time datetime="2022-10-23T09:54:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/10/23/%E7%BF%BB%E8%BD%AC%E5%8D%A1%E7%89%87loading/">翻转卡片loading</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -312,9 +352,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

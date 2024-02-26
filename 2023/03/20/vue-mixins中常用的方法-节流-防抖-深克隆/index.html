@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: css | Hexo</title>
+  <title>vue mixins中常用的方法-节流 防抖 深克隆 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/tags/css/index.html">
+  <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849debunce(f) &amp;#123;  let timePoint &#x3D; null;  return function () &amp;#123;    clearTimeout(timePoint);    timePoint &#x3D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue mixins中常用的方法-节流 防抖 深克隆">
+<meta property="og:url" content="http://example.com/2023/03/20/vue-mixins%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95-%E8%8A%82%E6%B5%81-%E9%98%B2%E6%8A%96-%E6%B7%B1%E5%85%8B%E9%9A%86/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849debunce(f) &amp;#123;  let timePoint &#x3D; null;  return function () &amp;#123;    clearTimeout(timePoint);    timePoint &#x3D;">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-03-20T05:42:21.000Z">
+<meta property="article:modified_time" content="2023-03-20T06:00:28.000Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -150,146 +155,176 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-vue-mixins中常用的方法-节流-防抖-深克隆" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/24/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
-  	<time datetime="2023-04-24T08:45:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-24</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/24/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/">盒子模型</a>
+    <h1 class="article-title" itemprop="name">
+      vue mixins中常用的方法-节流 防抖 深克隆
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2023/03/20/vue-mixins%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95-%E8%8A%82%E6%B5%81-%E9%98%B2%E6%8A%96-%E6%B7%B1%E5%85%8B%E9%9A%86/" class="archive-article-date">
+  	<time datetime="2023-03-20T05:42:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">debunce(f) &#123;</span><br><span class="line">  <span class="type">let</span> <span class="variable">timePoint</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">return</span> function () &#123;</span><br><span class="line">    clearTimeout(timePoint);</span><br><span class="line">    timePoint = setTimeout(() =&gt; &#123;</span><br><span class="line">      f.apply(<span class="built_in">this</span>, arguments);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">throttling(f)&#123;</span><br><span class="line">  <span class="type">let</span> <span class="variable">isRunning</span> <span class="operator">=</span> <span class="literal">false</span></span><br><span class="line">  <span class="keyword">return</span> function()&#123;</span><br><span class="line">    <span class="keyword">if</span>(isRunning == <span class="literal">true</span>)&#123;</span><br><span class="line">      <span class="keyword">return</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      setTimeout(()=&gt;&#123;</span><br><span class="line">        f.apply(<span class="built_in">this</span>, arguments)</span><br><span class="line">      &#125;, <span class="number">1000</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">cloneDeep(info)&#123;</span><br><span class="line">  <span class="keyword">if</span>(info == <span class="literal">null</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="type">const</span> <span class="variable">infoType</span> <span class="operator">=</span> typeof info</span><br><span class="line">  <span class="title function_">if</span><span class="params">(Array.isArray(info)</span> )&#123;</span><br><span class="line">    <span class="type">const</span> <span class="variable">n</span> <span class="operator">=</span> info.length;</span><br><span class="line">    <span class="type">let</span> <span class="variable">array</span> <span class="operator">=</span> []</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">let</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">      <span class="type">const</span> <span class="variable">temp</span> <span class="operator">=</span> <span class="built_in">this</span>.cloneDeep(info[i])</span><br><span class="line">      array.push(temp)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> array</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span>(infoType == <span class="string">&#x27;object&#x27;</span>)&#123;</span><br><span class="line">    <span class="type">const</span> <span class="variable">keys</span> <span class="operator">=</span>  Object.keys(info)</span><br><span class="line">    <span class="type">let</span> <span class="variable">ans</span> <span class="operator">=</span> &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">let</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; keys.length; i++)&#123;</span><br><span class="line">      <span class="type">let</span> <span class="variable">temp</span> <span class="operator">=</span> <span class="built_in">this</span>.cloneDeep(info[keys[i]])</span><br><span class="line">      ans[keys[i]] = temp</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> info</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h3 id="节流和防抖都是为了避免连续点击造成短时间内的多次请求-防抖在如果连续点击则会取消操作-节流会在一段时间内只请求一次-在初始代码时应当知道闭包的概念-闭包返回一个指针指向相应的地址-那么响应的内存则不会清除这是实现防抖和节流功能的关键。"><a href="#节流和防抖都是为了避免连续点击造成短时间内的多次请求-防抖在如果连续点击则会取消操作-节流会在一段时间内只请求一次-在初始代码时应当知道闭包的概念-闭包返回一个指针指向相应的地址-那么响应的内存则不会清除这是实现防抖和节流功能的关键。" class="headerlink" title="节流和防抖都是为了避免连续点击造成短时间内的多次请求,防抖在如果连续点击则会取消操作,节流会在一段时间内只请求一次.在初始代码时应当知道闭包的概念, 闭包返回一个指针指向相应的地址, 那么响应的内存则不会清除这是实现防抖和节流功能的关键。"></a>节流和防抖都是为了避免连续点击造成短时间内的多次请求,防抖在如果连续点击则会取消操作,节流会在一段时间内只请求一次.在初始代码时应当知道闭包的概念, 闭包返回一个指针指向相应的地址, 那么响应的内存则不会清除这是实现防抖和节流功能的关键。</h3><h3 id="因为在JavaScript中对象的复制其实复制的是引用的地址，我们可以通过指针修改内存空间的值。所以当需要修改变量时需要进行深克隆，避免修改原始值。"><a href="#因为在JavaScript中对象的复制其实复制的是引用的地址，我们可以通过指针修改内存空间的值。所以当需要修改变量时需要进行深克隆，避免修改原始值。" class="headerlink" title="因为在JavaScript中对象的复制其实复制的是引用的地址，我们可以通过指针修改内存空间的值。所以当需要修改变量时需要进行深克隆，避免修改原始值。"></a>因为在JavaScript中对象的复制其实复制的是引用的地址，我们可以通过指针修改内存空间的值。所以当需要修改变量时需要进行深克隆，避免修改原始值。</h3><h3 id="补充关于内存空间-基本值因为最大字节数固定可以分配固定的内存空间所有存储在栈中，对象的大小不定会存储在堆中，然后栈中存储相应的指针，赋值时其实赋值的是引用的地址。"><a href="#补充关于内存空间-基本值因为最大字节数固定可以分配固定的内存空间所有存储在栈中，对象的大小不定会存储在堆中，然后栈中存储相应的指针，赋值时其实赋值的是引用的地址。" class="headerlink" title="补充关于内存空间: 基本值因为最大字节数固定可以分配固定的内存空间所有存储在栈中，对象的大小不定会存储在堆中，然后栈中存储相应的指针，赋值时其实赋值的是引用的地址。"></a>补充关于内存空间: 基本值因为最大字节数固定可以分配固定的内存空间所有存储在栈中，对象的大小不定会存储在堆中，然后栈中存储相应的指针，赋值时其实赋值的是引用的地址。</h3><h3 id="tips-在实践开发中建议使用开源库，如lodash-避免自己手动实现，清楚了解掌握其中原理即可。"><a href="#tips-在实践开发中建议使用开源库，如lodash-避免自己手动实现，清楚了解掌握其中原理即可。" class="headerlink" title="tips: 在实践开发中建议使用开源库，如lodash,避免自己手动实现，清楚了解掌握其中原理即可。"></a>tips: 在实践开发中建议使用开源库，如lodash,避免自己手动实现，清楚了解掌握其中原理即可。</h3>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/03/20/vue-mixins%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95-%E8%8A%82%E6%B5%81-%E9%98%B2%E6%8A%96-%E6%B7%B1%E5%85%8B%E9%9A%86/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/13/%E9%AA%A8%E6%9E%B6%E5%B1%8F%E6%A0%B7%E5%BC%8F%E7%9A%84%E5%AE%9E%E7%8E%B0/" class="archive-article-date">
-  	<time datetime="2023-04-13T13:19:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-13</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2023/03/20/%E5%85%B3%E4%BA%8E%E6%96%87%E6%A1%A3%E7%BB%93%E6%9E%84%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8F%8D%E6%80%9D/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          关于文档结构的一些反思
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/03/19/%E7%90%86%E8%A7%A3Promise%E7%9A%84-all-%E5%92%8C-race/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">理解Promise的.all()和.race()</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/13/%E9%AA%A8%E6%9E%B6%E5%B1%8F%E6%A0%B7%E5%BC%8F%E7%9A%84%E5%AE%9E%E7%8E%B0/">骨架屏样式的实现</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/10/23/%E7%BF%BB%E8%BD%AC%E5%8D%A1%E7%89%87loading/" class="archive-article-date">
-  	<time datetime="2022-10-23T09:54:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/10/23/%E7%BF%BB%E8%BD%AC%E5%8D%A1%E7%89%87loading/">翻转卡片loading</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -312,9 +347,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
